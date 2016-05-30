@@ -3,6 +3,10 @@
 *.lo
 *.o
 *.obj
+*.sdf
+*.opensdf
+*.suo
+*.vcxproj.user
 
 # Precompiled Headers
 *.gch
