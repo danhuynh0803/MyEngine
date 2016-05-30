@@ -1,11 +1,31 @@
+#include <gl\glew.h>
+#include <cassert>
 #include "MyGlWindow.h"
 
-
-MyGlWindow::MyGlWindow()
+void MyGlWindow::initializeGL()
 {
+	GLenum errorCode = glewInit();  // glewInit returns an error code. We expect it to return 0 if there are no errors
+	assert(errorCode == 0);
+
+	// Make room on gpu for vertices
+	glGenBuffers(1, &vertexBufferID);   
+	glBindBuffer(GL_ARRAY_BUFFER, vertexBufferID);
+
+	// Create triangle information
+	float verts[] =
+	{
+		+0.0f, +0.1f,
+		-0.1f, -0.1f,
+		+0.1f, -0.1f,
+	};
+
+	glBufferData(GL_ARRAY_BUFFER, sizeof(verts), verts, GL_STATIC_DRAW);
 }
 
-
-MyGlWindow::~MyGlWindow()
+void MyGlWindow::paintGL()
 {
+	glClear(GL_COLOR_BUFFER_BIT);
+	glEnableVertexAttribArray(0);
+	glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 0, 0);
+	glDrawArrays(GL_TRIANGLES, 0, 3);
 }
