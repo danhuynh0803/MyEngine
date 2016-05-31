@@ -84,6 +84,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="MyGlWindow.cpp" />
+    <ClCompile Include="MyGlWindow_moc.cpp" />
     <ClCompile Include="SandboxGame.cpp" />
   </ItemGroup>
   <ItemGroup>

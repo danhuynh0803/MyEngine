@@ -2,6 +2,10 @@
 #include <cassert>
 #include "MyGlWindow.h"
 
+#include <iostream>
+using std::cout;
+using std::endl;
+
 void MyGlWindow::initializeGL()
 {
 	GLenum errorCode = glewInit();  // glewInit returns an error code. We expect it to return 0 if there are no errors
@@ -20,6 +24,9 @@ void MyGlWindow::initializeGL()
 	};
 
 	glBufferData(GL_ARRAY_BUFFER, sizeof(verts), verts, GL_STATIC_DRAW);
+
+	connect(&myTimer, SIGNAL(timeout()), this, SLOT(myUpdate()));
+	myTimer.start(0);
 }
 
 void MyGlWindow::paintGL()
@@ -28,4 +35,13 @@ void MyGlWindow::paintGL()
 	glEnableVertexAttribArray(0);
 	glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 0, 0);
 	glDrawArrays(GL_TRIANGLES, 0, 3);
+}
+
+int debugCount = 0;
+
+void MyGlWindow::myUpdate()
+{
+	++debugCount;
+	if (debugCount % 1000 == 0) 
+		cout << "frame!" << ++debugCount << endl;
 }
