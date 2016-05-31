@@ -83,10 +83,10 @@
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Vector2D.h" />
+    <ClInclude Include="Math\Vector2D.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Vector2D.inl" />
+    <None Include="Math\Vector2D.inl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

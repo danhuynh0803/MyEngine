@@ -8,7 +8,8 @@ namespace Math
 		float x;
 		float y;
 
-		Vector2D(float x = 0.0f, float y = 0.0f) : x(x), y(y) {}
+		// Converting floats to Vector2D requires an explicit cast
+		explicit Vector2D(float x = 0.0f, float y = 0.0f) : x(x), y(y) {}
 	};
 
 	inline Vector2D operator+(const Vector2D& left, const Vector2D& right);

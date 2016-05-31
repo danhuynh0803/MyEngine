@@ -6,9 +6,14 @@
 *.sdf
 *.opensdf
 *.suo
+
+# Temp objects 
 *.vcxproj.user
 *.vcxproj
 *.log 
+*.tlog
+*.idb
+*.pdb
 
 # Precompiled Headers
 *.gch
