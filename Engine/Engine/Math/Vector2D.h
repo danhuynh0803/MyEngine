@@ -16,6 +16,6 @@ namespace Math
 	inline Vector2D operator*(float scalar, const Vector2D& vector);
 	inline Vector2D operator*(const Vector2D& vector, float scalar);
     #include "vector2D.inl"
-
+	 
 }
 #endif

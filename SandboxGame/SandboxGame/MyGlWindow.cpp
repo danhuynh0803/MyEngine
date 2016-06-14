@@ -2,6 +2,7 @@
 #include <cassert>
 #include "MyGlWindow.h"
 #include <Math\Vector2D.h>
+#include <Qt\qdebug.h>
 
 using Math::Vector2D;
 
@@ -54,9 +55,19 @@ void MyGlWindow::paintGL()
 	glDrawArrays(GL_TRIANGLES, 0, 3);
 }
 
+int debugInt = 1; 
 void MyGlWindow::myUpdate()
 {
-	Vector2D velocity(0.01f, 0.01f);
+	if (debugInt++ % 20 == 0)
+		for (int i = 0; i < 1000; ++i)
+			qDebug() << "";
+			
+	Vector2D velocity(0.001f, 0.001f);
 	shipPosition = shipPosition + velocity;
 	repaint();
+}
+
+void MyGlWindow::keyPressEvent(QKeyEvent* e)
+{
+
 }
